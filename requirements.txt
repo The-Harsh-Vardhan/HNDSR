@@ -1,0 +1,39 @@
+# HNDSR: Hybrid Neural Operator-Diffusion Super-Resolution
+# Python dependencies for satellite image super-resolution
+
+# Core Deep Learning Frameworks
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Perceptual and Image Quality Metrics
+lpips>=0.1.4
+scikit-image>=0.19.0
+
+# Visualization and Plotting
+matplotlib>=3.5.0
+seaborn>=0.12.0
+
+# Image Processing
+Pillow>=9.0.0
+
+# Numerical Computing
+numpy>=1.21.0
+
+# Progress Tracking
+tqdm>=4.64.0
+
+# Neural Network Components
+timm>=0.6.0
+
+# Tensor Operations
+einops>=0.6.0
+
+# Dataset Management
+kagglehub>=0.2.0
+
+# Utilities
+pathlib>=1.0.1
+
+# Optional: For Colab/Kaggle environments
+# gdown>=4.6.0  # Google Drive downloads
+# kaggle>=1.5.0  # Kaggle API

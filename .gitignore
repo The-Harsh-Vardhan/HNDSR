@@ -1,0 +1,139 @@
+# HNDSR .gitignore
+# Excludes large files, checkpoints, and sensitive data
+
+# ===========================
+# Model Checkpoints & Weights
+# ===========================
+*.pth
+*.pt
+*.pkl
+*.ckpt
+checkpoints/
+saved_models/
+weights/
+best_model/
+
+# ===========================
+# Dataset & Large Files
+# ===========================
+data/
+dataset/
+datasets/
+*.tif
+*.tiff
+*.geotiff
+HR_0.5m/
+LR_2m/
+4x-satellite-image-super-resolution/
+
+# ===========================
+# Evaluation & Output
+# ===========================
+evaluation_results/
+outputs/
+results/
+inference_output/
+super_resolved/
+*.png
+*.jpg
+*.jpeg
+!Images/*.png  # Keep visualization assets
+!Images/*.jpg
+!Images/*.svg
+
+# ===========================
+# Documentation - Markdown Versions
+# ===========================
+# Keep PDFs tracked, ignore markdown versions
+docs/*.md
+!docs/README.md  # Keep docs index
+docs/HNDSR_Paper_Final.md
+docs/HNDSR_Mini_Project_Report.md
+docs/ppt.md
+
+# ===========================
+# Python Cache & Bytecode
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# ===========================
+# Jupyter Notebook
+# ===========================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+*.ipynb_tmp
+
+# ===========================
+# Virtual Environments
+# ===========================
+venv/
+env/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# ===========================
+# IDE & Editors
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ===========================
+# Kaggle & API Credentials
+# ===========================
+kaggle.json
+.kaggle/
+kaggle_credentials.json
+
+# ===========================
+# Google Colab & Drive
+# ===========================
+drive/
+MyDrive/
+.colab_configs/
+
+# ===========================
+# Logs & Monitoring
+# ===========================
+*.log
+logs/
+tensorboard/
+runs/
+wandb/
+
+# ===========================
+# System Files
+# ===========================
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ===========================
+# Temporary Files
+# ===========================
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# ===========================
+# Git & Version Control
+# ===========================
+.git/
+*.orig
+
+# ===========================
+# Extras & Temporary Files
+# ===========================
+Extras/
