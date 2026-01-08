@@ -28,8 +28,16 @@ HNDSR is a novel hybrid super-resolution framework that combines the continuous-
 
 ### Architecture
 
+The HNDSR framework consists of three sequential stages that work together to achieve high-quality continuous-scale super-resolution:
+
 ![HNDSR Architecture](Images/fig-01_final.png)
-*Three-stage hybrid architecture combining Autoencoder, Neural Operator, and Diffusion Model*
+
+**Figure 1: HNDSR Architecture Overview**
+- **Stage 1 (Left):** Autoencoder learns low-level structural features and reconstructs the base high-resolution representation through encoder-decoder architecture with residual connections
+- **Stage 2 (Center):** Neural Operator applies continuous latent mapping using Fourier-based transformations to create scale-invariant feature representations that support arbitrary upscaling factors
+- **Stage 3 (Right):** Diffusion Model refines high-frequency textures through iterative denoising conditioned on Neural Operator priors, generating photo-realistic details
+
+*The three stages are trained sequentially, with each stage building upon the learned representations from previous stages.*
 
 ---
 
@@ -136,9 +144,22 @@ hr_image = hndsr_inference(lr_image, scale_factor=4.0)
 
 ## 📈 Results
 
+### Qualitative Comparison
+
+![Visual Comparison](Images/fig-02_final.png)
+
+**Figure 2: Visual Super-Resolution Results**
+- **Top Row:** Input low-resolution satellite images (2m/pixel) showing urban infrastructure, agricultural fields, and terrain features
+- **Middle Row:** Ground truth high-resolution images (0.5m/pixel) captured by satellite sensors
+- **Bottom Row:** HNDSR super-resolved outputs demonstrating sharp edge reconstruction, texture preservation, and structural coherence
+
+*Notice how HNDSR successfully recovers fine details such as road networks, building boundaries, and vegetation patterns that are barely visible in the low-resolution inputs.*
+
 ### Quantitative Performance
 
-![Results Comparison](Images/fig-02_final.png)
+![Quantitative Metrics](Images/table-01.png)
+
+**Table 1: Performance Comparison on 4× Satellite Image Super-Resolution**
 
 | Method | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
 |--------|--------|--------|---------|
@@ -148,14 +169,32 @@ hr_image = hndsr_inference(lr_image, scale_factor=4.0)
 | E²DiffSR | 28.72 | 0.85 | 0.18 |
 | **HNDSR (Ours)** | **29.40** | **0.87** | **0.16** |
 
-*Table: 4× super-resolution results on test set*
+**Metrics Explained:**
+- **PSNR (Peak Signal-to-Noise Ratio):** Measures pixel-level accuracy. Higher is better. HNDSR achieves +0.68 dB improvement over E²DiffSR.
+- **SSIM (Structural Similarity Index):** Evaluates structural preservation. Closer to 1.0 is better. HNDSR maintains superior structural fidelity.
+- **LPIPS (Learned Perceptual Image Patch Similarity):** Assesses perceptual quality using deep features. Lower is better. HNDSR produces more realistic textures.
 
-![Metrics Table](Images/table-01.png)
+### Stage-wise Performance Analysis
+
+![Ablation Study](Images/table-02.png)
+
+**Table 2: Contribution of Each Stage**
+
+This ablation study demonstrates the incremental improvements from each stage:
+- **Stage 1 (Autoencoder):** Establishes baseline reconstruction with basic structural features
+- **Stage 2 (+ Neural Operator):** Adds continuous-scale awareness and global context understanding
+- **Stage 3 (+ Diffusion Model):** Refines textures and recovers high-frequency details for photo-realistic outputs
 
 ### Training Convergence
 
-![Training Curves](Images/training_curve.png)
-*Loss convergence across all three training stages*
+![Training Loss Curves](Images/training_curve.png)
+
+**Figure 3: Training and Validation Loss Across Three Stages**
+- **Left Panel:** Stage 1 Autoencoder shows rapid convergence from ~0.23 to ~0.07 reconstruction loss
+- **Center Panel:** Stage 2 Neural Operator reduces latent space MSE from ~11.6 to ~4.2, indicating effective continuous mapping learning
+- **Right Panel:** Stage 3 Diffusion Model demonstrates stable denoising loss convergence from ~1.01 to ~0.74
+
+*Validation losses closely track training losses, indicating good generalization without overfitting.*
 
 ---
 
