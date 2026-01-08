@@ -34,10 +34,19 @@ outputs/
 results/
 inference_output/
 super_resolved/
-*.png
+
+# Exclude output images but keep Images/ folder assets
+/evaluation_results/**/*.png
+/outputs/**/*.png
+/results/**/*.png
+/inference_output/**/*.png
+/super_resolved/**/*.png
 *.jpg
 *.jpeg
-!Images/*.png  # Keep visualization assets
+
+# Explicitly include Images folder
+!Images/
+!Images/*.png
 !Images/*.jpg
 !Images/*.svg
 
