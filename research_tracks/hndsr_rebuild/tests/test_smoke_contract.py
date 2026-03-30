@@ -1,5 +1,5 @@
-import shutil
 from pathlib import Path
+from uuid import uuid4
 
 import torch
 from PIL import Image
@@ -20,10 +20,10 @@ def _write_fake_image(path: Path, color: tuple[int, int, int], size: tuple[int, 
 
 
 def _fresh_dir(name: str) -> Path:
-    root = Path("research_tracks/hndsr_rebuild/.tmp/tests") / name
-    if root.exists():
-        shutil.rmtree(root)
-    root.mkdir(parents=True, exist_ok=True)
+    base = Path("research_tracks/hndsr_rebuild/artifacts/test-fixtures")
+    base.mkdir(parents=True, exist_ok=True)
+    root = base / f"{name}-{uuid4().hex[:8]}"
+    root.mkdir(parents=True, exist_ok=False)
     return root
 
 

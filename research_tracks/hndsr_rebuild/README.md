@@ -13,9 +13,10 @@ This track rebuilds HNDSR as an isolated research workflow instead of extending 
 
 - `configs/`: phase configs and ablation defaults
 - `src/`: reusable dataset, metrics, tracker, and model code
-- `scripts/`: train, evaluate, export, and ablation entrypoints
-- `notebooks/`: control notebook for runtime checks and dashboards
-- `reports/`: tracked markdown summaries for each phase
+- `scripts/`: train, evaluate, export, ablation, and notebook readiness entrypoints
+- `notebooks/`: control notebook plus immutable versioned Kaggle notebooks
+- `docs/`: external notebook docs and workflow contracts
+- `reports/`: tracked markdown summaries and post-run review docs
 
 ## First Commands
 
@@ -26,6 +27,7 @@ python research_tracks/hndsr_rebuild/scripts/evaluate_run.py --config research_t
 python research_tracks/hndsr_rebuild/scripts/evaluate_run.py --config research_tracks/hndsr_rebuild/configs/phase0_bicubic_kaggle_control_smoke.yaml
 python research_tracks/hndsr_rebuild/scripts/train_baseline.py --config research_tracks/hndsr_rebuild/configs/phase1_sr3_smoke.yaml
 python research_tracks/hndsr_rebuild/scripts/evaluate_run.py --config research_tracks/hndsr_rebuild/configs/phase1_sr3_smoke.yaml
+python research_tracks/hndsr_rebuild/scripts/validate_notebook_version.py --version vR.1 --notebook research_tracks/hndsr_rebuild/notebooks/versions/vR.1_HNDSR.ipynb --doc research_tracks/hndsr_rebuild/docs/notebooks/vR.1_HNDSR.md --review research_tracks/hndsr_rebuild/reports/reviews/vR.1_HNDSR.review.md --config research_tracks/hndsr_rebuild/configs/phase1_sr3_vr1_kaggle.yaml --smoke-config research_tracks/hndsr_rebuild/configs/phase1_sr3_vr1_smoke.yaml --control-config research_tracks/hndsr_rebuild/configs/phase0_bicubic_vr1_kaggle_control.yaml
 ```
 
 ## Dataset Contract
@@ -45,3 +47,12 @@ Paper datasets are modeled as HR-only roots with deterministic synthetic LR gene
 Bootstrap configs default to W&B `offline` mode so runs work before login is configured. Switch `tracking.mode` to `online` once the machine is authenticated.
 
 If W&B is unavailable or init fails, the scripts fall back to a no-op tracker and still write local JSON reports.
+
+## Notebook Versioning Workflow
+
+- Immutable Kaggle notebook versions live under `notebooks/versions/`.
+- Every notebook version has a paired external doc in `docs/notebooks/` and a paired review doc in `reports/reviews/`.
+- Scratch lineage uses `vR.x_HNDSR.ipynb`.
+- External pretrained lineage uses `vR.P.x_HNDSR.ipynb`.
+- Create a new version only for model, optimizer, loss, dataset/protocol, checkpoint-source, or evaluation-contract changes.
+- Run `validate_notebook_version.py` before handing a notebook to Kaggle.
