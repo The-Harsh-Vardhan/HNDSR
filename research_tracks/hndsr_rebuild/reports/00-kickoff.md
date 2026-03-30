@@ -5,14 +5,15 @@
 - Rebuild the research lane in an isolated folder.
 - Keep production untouched until a new baseline is verified.
 - Use W&B as the only experiment tracker in the new lane.
+- Honor the paper-dataset lane first: UCMerced, AID, and RSSCN7 before deeper Kaggle-only work.
 
 ## Phase Ladder
 
 1. Bicubic bootstrap and dataset parity checks
-2. SR3-style conditional diffusion baseline
-3. Latent diffusion baseline
-4. Neural-operator baseline
-5. Hybrid merge with bounded ablations
+2. Paper-dataset adapter checks for UCMerced, AID, and RSSCN7
+3. SR3-style conditional diffusion baseline
+4. Latent diffusion baseline
+5. Neural-operator baseline and hybrid merge
 
 ## Gate Policy
 

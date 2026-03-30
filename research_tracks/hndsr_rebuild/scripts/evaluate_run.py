@@ -89,6 +89,9 @@ def evaluate(config: dict, run_name: str, device: torch.device, checkpoint: str 
     summary = {
         "run_name": run_name,
         "model_kind": config["model"]["kind"],
+        "dataset_family": config["dataset"]["family"],
+        "dataset_name": bundle.dataset_name,
+        "pairing_mode": bundle.pairing_mode,
         "device": str(device),
         "checkpoint": checkpoint,
         "psnr_mean": float(sum(psnr_values) / max(len(psnr_values), 1)),

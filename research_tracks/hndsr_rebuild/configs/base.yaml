@@ -7,10 +7,24 @@ project:
     - smoke
 
 paths:
-  hr_dir: "C:\\Users\\harsh\\.cache\\kagglehub\\datasets\\cristobaltudela\\4x-satellite-image-super-resolution\\versions\\1\\HR_0.5m\\HR_0.5m"
-  lr_dir: "C:\\Users\\harsh\\.cache\\kagglehub\\datasets\\cristobaltudela\\4x-satellite-image-super-resolution\\versions\\1\\LR_2m\\LR_2m"
   artifact_root: "research_tracks/hndsr_rebuild/artifacts"
   report_root: "research_tracks/hndsr_rebuild/reports"
+  datasets:
+    kaggle_4x:
+      hr_dir: "C:\\Users\\harsh\\.cache\\kagglehub\\datasets\\cristobaltudela\\4x-satellite-image-super-resolution\\versions\\1\\HR_0.5m\\HR_0.5m"
+      lr_dir: "C:\\Users\\harsh\\.cache\\kagglehub\\datasets\\cristobaltudela\\4x-satellite-image-super-resolution\\versions\\1\\LR_2m\\LR_2m"
+    ucmerced:
+      root_dir: "C:\\D Drive\\Projects\\Dataset\\UCMerced_LandUse\\Images"
+    aid:
+      root_dir: "C:\\D Drive\\Projects\\Dataset\\AID"
+    rsscn7:
+      root_dir: "C:\\D Drive\\Projects\\Dataset\\RSSCN7"
+
+dataset:
+  family: kaggle
+  name: kaggle_4x
+  pairing_mode: paired
+  scale_factor: 4
 
 data:
   patch_size: 64

@@ -1,21 +1,18 @@
 inherits: "research_tracks/hndsr_rebuild/configs/base.yaml"
 
 project:
-  group: bootstrap
+  group: neurop-diff-paper
   tags:
     - smoke
+    - paper-dataset
+    - rsscn7
     - bicubic
 
 dataset:
-  family: kaggle
-  name: kaggle_4x
-  pairing_mode: paired
+  family: paper
+  name: rsscn7
+  pairing_mode: synthetic_4x
   scale_factor: 4
 
 model:
   kind: bicubic
-
-evaluation:
-  split: "val"
-  sample_limit: 8
-  save_limit: 8

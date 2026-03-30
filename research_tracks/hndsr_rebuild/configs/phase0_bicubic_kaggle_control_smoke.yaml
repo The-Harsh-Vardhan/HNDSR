@@ -1,9 +1,10 @@
 inherits: "research_tracks/hndsr_rebuild/configs/base.yaml"
 
 project:
-  group: bootstrap
+  group: kaggle-control
   tags:
     - smoke
+    - kaggle-control
     - bicubic
 
 dataset:
@@ -14,8 +15,3 @@ dataset:
 
 model:
   kind: bicubic
-
-evaluation:
-  split: "val"
-  sample_limit: 8
-  save_limit: 8

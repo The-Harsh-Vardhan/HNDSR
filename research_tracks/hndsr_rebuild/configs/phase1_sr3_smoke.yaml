@@ -6,6 +6,12 @@ project:
     - smoke
     - sr3
 
+dataset:
+  family: kaggle
+  name: kaggle_4x
+  pairing_mode: paired
+  scale_factor: 4
+
 model:
   kind: sr3
   model_channels: 32

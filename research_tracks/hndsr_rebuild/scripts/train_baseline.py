@@ -102,6 +102,9 @@ def train(config: dict, run_name: str, device: torch.device) -> dict[str, object
     summary = {
         "run_name": run_name,
         "model_kind": config["model"]["kind"],
+        "dataset_family": config["dataset"]["family"],
+        "dataset_name": bundle.dataset_name,
+        "pairing_mode": bundle.pairing_mode,
         "device": str(device),
         "train_size": bundle.train_size,
         "val_size": bundle.val_size,
