@@ -1,0 +1,24 @@
+artifact_path: file:///c:\Users\harsh\OneDrive - Indian Institute of Information Technology,
+  Nagpur\IIIT Nagpur\5th Semester\Mini Project\MLFlow\mlruns/740344266132456039/models/m-649d39cdc8e1474aa12cfc2c1a43da41/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.12.10
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.10.0+cu126
+mlflow_version: 3.10.0
+model_id: m-649d39cdc8e1474aa12cfc2c1a43da41
+model_size_bytes: 25314491
+model_uuid: m-649d39cdc8e1474aa12cfc2c1a43da41
+prompts: null
+run_id: 78fe59e1059f48e38090bb7a54fabfa1
+utc_time_created: '2026-03-02 23:59:02.785948'

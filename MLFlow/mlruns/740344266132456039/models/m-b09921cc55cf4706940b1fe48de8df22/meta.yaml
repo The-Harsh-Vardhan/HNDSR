@@ -1,0 +1,11 @@
+artifact_location: file:///c:\Users\harsh\OneDrive - Indian Institute of Information
+  Technology, Nagpur\IIIT Nagpur\5th Semester\Mini Project\MLFlow\mlruns/740344266132456039/models/m-b09921cc55cf4706940b1fe48de8df22/artifacts
+creation_timestamp: 1772504781080
+experiment_id: '740344266132456039'
+last_updated_timestamp: 1772504808240
+model_id: m-b09921cc55cf4706940b1fe48de8df22
+model_type: null
+name: hndsr_model
+source_run_id: f67cb70de84748f2be55bd744ecbd0e4
+status: 2
+status_message: null

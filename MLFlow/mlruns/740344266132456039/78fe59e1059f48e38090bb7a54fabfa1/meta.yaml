@@ -1,0 +1,15 @@
+artifact_uri: file:///c:\Users\harsh\OneDrive - Indian Institute of Information Technology,
+  Nagpur\IIIT Nagpur\5th Semester\Mini Project\MLFlow\mlruns/740344266132456039/78fe59e1059f48e38090bb7a54fabfa1/artifacts
+end_time: 1772496001469
+entry_point_name: ''
+experiment_id: '740344266132456039'
+lifecycle_stage: active
+run_id: 78fe59e1059f48e38090bb7a54fabfa1
+run_name: HNDSR_full_training
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772493234731
+status: 3
+tags: []
+user_id: harsh
