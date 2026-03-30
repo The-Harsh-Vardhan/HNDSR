@@ -138,6 +138,9 @@ temp/
 *.tmp
 *.bak
 *.cache
+.pip-cache/
+.pytest_cache/
+pytest-cache-files-*/
 research_tracks/*/.tmp/
 
 # ===========================
