@@ -119,6 +119,9 @@ logs/
 tensorboard/
 runs/
 wandb/
+research_tracks/*/artifacts/
+research_tracks/*/wandb/
+research_tracks/*/outputs/
 
 # ===========================
 # System Files
@@ -135,6 +138,7 @@ temp/
 *.tmp
 *.bak
 *.cache
+research_tracks/*/.tmp/
 
 # ===========================
 # Git & Version Control

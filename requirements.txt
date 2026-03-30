@@ -18,9 +18,11 @@ Pillow>=9.0.0
 
 # Numerical Computing
 numpy>=1.21.0
+PyYAML>=6.0
 
 # Progress Tracking
 tqdm>=4.64.0
+wandb>=0.17.0
 
 # Neural Network Components
 timm>=0.6.0

@@ -1,0 +1,15 @@
+inherits: "research_tracks/hndsr_rebuild/configs/base.yaml"
+
+project:
+  group: bootstrap
+  tags:
+    - smoke
+    - bicubic
+
+model:
+  kind: bicubic
+
+evaluation:
+  split: "val"
+  sample_limit: 8
+  save_limit: 8

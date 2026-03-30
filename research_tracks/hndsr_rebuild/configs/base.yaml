@@ -1,0 +1,55 @@
+seed: 42
+
+project:
+  name: hndsr-research-track
+  group: bootstrap
+  tags:
+    - smoke
+
+paths:
+  hr_dir: "C:\\Users\\harsh\\.cache\\kagglehub\\datasets\\cristobaltudela\\4x-satellite-image-super-resolution\\versions\\1\\HR_0.5m\\HR_0.5m"
+  lr_dir: "C:\\Users\\harsh\\.cache\\kagglehub\\datasets\\cristobaltudela\\4x-satellite-image-super-resolution\\versions\\1\\LR_2m\\LR_2m"
+  artifact_root: "research_tracks/hndsr_rebuild/artifacts"
+  report_root: "research_tracks/hndsr_rebuild/reports"
+
+data:
+  patch_size: 64
+  batch_size: 2
+  num_workers: 0
+  val_split: 0.1
+  fixed_scale: 4
+  train_limit: null
+  val_limit: 8
+
+tracking:
+  enabled: true
+  mode: "offline"
+  project: "hndsr-research-track"
+  entity: null
+  notes: "Isolated HNDSR rebuild track"
+
+model:
+  kind: bicubic
+  model_channels: 32
+
+training:
+  epochs: 1
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  grad_clip: 1.0
+  max_train_batches: 4
+  max_val_batches: 2
+  checkpoint_name: "baseline.pt"
+
+diffusion:
+  num_timesteps: 1000
+  beta_start: 1.0e-4
+  beta_end: 0.02
+  inference_steps: 20
+
+evaluation:
+  split: "val"
+  sample_limit: 8
+  save_limit: 8
+  compute_lpips: true
+  grid_name: "comparison_grid.png"
