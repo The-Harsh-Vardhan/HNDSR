@@ -27,16 +27,21 @@
 ## Kaggle Run Guide
 
 1. Open `research_tracks/hndsr_rebuild/notebooks/versions/vR.1_HNDSR.ipynb`.
-2. Run the runtime diagnostics cells first and confirm CUDA visibility if a GPU runtime is enabled.
-3. Run the readiness validator cell before any training cell.
-4. Run the bicubic control evaluation to confirm the dataset and metrics path.
-5. Run the smoke training cell to confirm script, checkpoint, and evaluation wiring.
-6. Run the full training and full evaluation cells only after the smoke path succeeds.
-7. Export the executed notebook, the generated metrics JSON, the comparison grid, and the best checkpoint path back into the repo workflow for review.
+2. Attach both datasets declared in `research_tracks/hndsr_rebuild/notebooks/versions/kernel-metadata.json`:
+   - `cristobaltudela/4x-satellite-image-super-resolution`
+   - `harshv777/hndsr-mini-project-code`
+3. Run the runtime diagnostics cells first and confirm the notebook finds the repo under `/kaggle/input/hndsr-mini-project-code/Mini Project` before training.
+4. Confirm CUDA visibility if a GPU runtime is enabled.
+5. Leave the repo-root debug output in place for the first Kaggle pass; it is there to catch bad dataset mounts early.
+6. Run the readiness validator cell before any training cell.
+7. Run the bicubic control evaluation to confirm the dataset and metrics path.
+8. Run the smoke training cell to confirm script, checkpoint, and evaluation wiring.
+9. Run the full training and full evaluation cells only after the smoke path succeeds.
+10. Export the executed notebook, the generated metrics JSON, the comparison grid, and the best checkpoint path back into the repo workflow for review.
 
 ## Expected Artifacts
 
-- Control eval summary JSON under `research_tracks/hndsr_rebuild/artifacts/vR.1-control-eval/`
+- Control eval summary JSON under `research_tracks/hndsr_rebuild/artifacts/vR.1-control/`
 - Smoke checkpoint and metrics under `research_tracks/hndsr_rebuild/artifacts/vR.1-smoke/`
 - Full training checkpoint and metrics under `research_tracks/hndsr_rebuild/artifacts/vR.1-train/`
 - Full evaluation summary and image strips under `research_tracks/hndsr_rebuild/artifacts/vR.1-eval/`
@@ -46,6 +51,7 @@
 
 - `vR.1` stays on the Kaggle control lane even though the broader rebuild track is paper-first.
 - W&B defaults to offline mode to keep the first Kaggle pass stable.
+- The notebook now checks both Kaggle working-directory mounts and the attached code-dataset mount before asserting the repo layout.
 - This notebook is allowed to orchestrate scripts, inspect configs, and render outputs. It is not allowed to carry unique model-training logic.
 
 ## Handoff Back For Review

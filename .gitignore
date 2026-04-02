@@ -141,6 +141,11 @@ temp/
 .pip-cache/
 .pytest_cache/
 pytest-cache-files-*/
+hndsr-repo.zip
+kaggle_staging/
+dataset-metadata.json
+!research_tracks/hndsr_rebuild/kaggle/dataset-metadata.json
+research_tracks/kaggle hndsr api token.json
 research_tracks/*/.tmp/
 
 # ===========================
