@@ -147,6 +147,7 @@ dataset-metadata.json
 !research_tracks/hndsr_rebuild/kaggle/dataset-metadata.json
 research_tracks/kaggle hndsr api token.json
 research_tracks/*/.tmp/
+showcase_repos/
 
 # ===========================
 # Git & Version Control

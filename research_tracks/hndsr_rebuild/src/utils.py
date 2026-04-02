@@ -15,7 +15,28 @@ import torch
 import yaml
 
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
+def _is_relative_to(path: Path, other: Path) -> bool:
+    try:
+        path.relative_to(other)
+        return True
+    except ValueError:
+        return False
+
+
+def detect_repo_root() -> Path:
+    """Resolve either the monorepo root or a standalone export root."""
+    current = Path(__file__).resolve()
+    for candidate in current.parents:
+        track_root = candidate / "research_tracks" / "hndsr_rebuild"
+        if (track_root / "src").exists() and _is_relative_to(current, track_root):
+            return candidate
+    for candidate in current.parents:
+        if (candidate / "src").exists() and (candidate / "configs").exists() and (candidate / "scripts").exists():
+            return candidate
+    raise RuntimeError("Could not detect the HNDSR rebuild repo root.")
+
+
+REPO_ROOT = detect_repo_root()
 
 
 def repo_path(value: str | Path) -> Path:
