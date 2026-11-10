@@ -1,0 +1,6 @@
+theme: jekyll-theme-cayman
+title: HNDSR
+description: Hybrid Neural Operator-Diffusion model for continuous-scale satellite image super-resolution
+show_downloads: false
+exclude:
+  - ai
